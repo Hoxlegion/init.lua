@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local opts = { noremap = true, silend = true }
+local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
 map("n", "<leader>pv", vim.cmd.Ex)
@@ -29,9 +29,6 @@ map("n", "Q", "<nop>")
 map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 map("n", "<M-h>", "<cmd>silent !tmux-sessionizer -s 0 --vsplit<CR>")
 map("n", "<M-H>", "<cmd>silent !tmux neww tmux-sessionizer -s 0<CR>")
-map("n", "<leader>f", function()
-    require("conform").format({ bufnr = 0 })
-end)
 
 map("n", "<C-k>", "<cmd>cnext<CR>zz")
 map("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -82,5 +79,11 @@ map("n", "[c", function()
     return "<Ignore>"
 end, { expr = true })
 
--- -- Undotree: toggle the undo history tree
+-- Undotree: toggle the undo history tree
 map("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
+
+-- Telescope Fuzzy Finder
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")

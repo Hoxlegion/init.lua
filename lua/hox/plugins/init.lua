@@ -40,5 +40,15 @@ return {
   { "rose-pine/neovim", name = "rose-pine" },
 
   -- Navigation
-  { "ThePrimeagen/harpoon" },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim"
+    },
+    config = function()
+        require("hox.plugins.config.harpoon")
+    end,
+    },
 }

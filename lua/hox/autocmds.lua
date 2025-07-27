@@ -36,3 +36,15 @@ autocmd('BufEnter', {
 	end
 })
 
+autocmd('BufEnter', {
+    group = HoxGroup,
+    pattern = "*",
+    callback = function(args)
+        local file = vim.api.nvim_buf_get_name(args.buf)
+
+        if vim.fn.filereadable(file) == 1 then
+            local dir = vim.fn.fnamemodify(file, ':h')
+            vim.cmd('lcd ' .. vim.fn.fnameescape(dir))
+        end
+    end,
+})
