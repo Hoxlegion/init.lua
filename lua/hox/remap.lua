@@ -68,3 +68,19 @@ map(
 map("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- Gitsigns: navigate between git "hunks" (changed sections)
+map("n", "]c", function()
+    if vim.wo.diff then return "]c" end
+    vim.schedule(function() require("gitsigns").next_hunk() end)
+    return "<Ignore>"
+end, { expr = true })
+
+map("n", "[c", function()
+    if vim.wo.diff then return "[c" end
+    vim.schedule(function() require("gitsigns").prev_hunk() end)
+    return "<Ignore>"
+end, { expr = true })
+
+-- -- Undotree: toggle the undo history tree
+map("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
