@@ -9,7 +9,12 @@ return {
   { "rafamadriz/friendly-snippets" },
 
   -- LSP & Tools
-  { "neovim/nvim-lspconfig" },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+        require("hox.plugins.config.lspconfig")
+    end,
+  },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
 
