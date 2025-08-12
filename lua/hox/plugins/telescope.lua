@@ -5,9 +5,13 @@ return {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-            require("telescope").setup({
+            local telescope = require("telescope")
+
+            telescope.setup({
                 -- Add extensive configuration here,
             })
+
+            telescope.load_extension("harpoon")
         end,
     },
 }

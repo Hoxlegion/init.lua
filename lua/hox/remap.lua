@@ -87,3 +87,19 @@ map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+
+map('n', '<leader>fh', function()
+    require("telescope").extensions.harpoon.marks()
+end, { desc = "Harpoon: Shows marks in Telescope" })
+
+map('n', '<leader>a', function () require("harpoon.mark").add_file() end, { desc = 'Harpoon: Add file' })
+map('n', '<C-e>', function () require("harpoon.ui").toggle_quick_menu() end, { desc = 'Harpoon: Toggle quick menu' })
+
+map('n', '<C-S-P>', function () require("harpoon.ui").nav_next() end, { desc = 'Harpoon: Navigate next' })
+map('n', '<C-S-N>', function () require("harpoon.ui").nav_prev() end, { desc = 'Harpoon: Navigate previous' })
+
+map('n', '<C-h>', function() require("harpoon.ui").nav_file(1) end, { desc = 'Harpoon to file 1' })
+map('n', '<C-t>', function() require("harpoon.ui").nav_file(2) end, { desc = 'Harpoon to file 2' })
+map('n', '<C-n>', function() require("harpoon.ui").nav_file(3) end, { desc = 'Harpoon to file 3' })
+map('n', '<C-s>', function() require("harpoon.ui").nav_file(4) end, { desc = 'Harpoon to file 4' })
+
